@@ -1,0 +1,31 @@
+GET http://localhost:8000/movies
+
+###
+
+GET http://localhost:8000/movies/[id]
+
+###
+
+POST http://localhost:8000/movies
+Content-Type: application/json
+
+{
+    "title": "Thor: Love Or Thunder",
+    "director": "Taika Waititi",
+    "releaseYear": 2022
+}
+
+###
+
+PATCH http://localhost:8000/movies/[id]
+Content-Type: application/json
+
+{
+    "title":"Thor: Love Is Thunder",
+    "director":"Taika Waitit",
+    "releaseYear":"2022" 
+}
+
+###
+
+DELETE http://localhost:8000/movies/[id]

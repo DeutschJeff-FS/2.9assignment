@@ -1,0 +1,24 @@
+{
+  "name": "deutschjeff_2.9assignment",
+  "version": "1.0.0",
+  "description": "A fullstack CRUD app",
+  "engines": {
+    "node": "16.15.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "install-react": "npm install --prefix reactjs",
+    "install-api": "npm install --prefix api",
+    "build-react": "npm run build --prefix reactjs",
+    "heroku-postbuild": "concurrently \"npm:install-*\"; concurrently \"npm:build-*\"; ",
+    "start": "npm start --prefix api",
+    "dev:react": "concurrently --raw \"npm run api\" \"npm run react\"",
+    "react": "cd reactjs && npm run start",
+    "api": "cd api, nodemon server.js"
+  },
+  "author": "Jeff Deutsch",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.2.2"
+  }
+}
