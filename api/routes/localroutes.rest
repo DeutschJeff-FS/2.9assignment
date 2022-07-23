@@ -1,12 +1,12 @@
-GET http://localhost:8000/movies
+GET http://localhost:8000/api/v1/movies
 
 ###
 
-GET http://localhost:8000/movies/[id]
+GET http://localhost:8000/api/v1/movies/[id]
 
 ###
 
-POST http://localhost:8000/movies
+POST http://localhost:8000/api/v1/movies
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:8000/movies/[id]
+PATCH http://localhost:8000/api/v1/movies/[id]
 Content-Type: application/json
 
 {
@@ -28,4 +28,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8000/movies/[id]
+DELETE http://localhost:8000/api/v1/movies/[id]
