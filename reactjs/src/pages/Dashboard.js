@@ -75,43 +75,61 @@ function Dashboard() {
   return (
     <div className="App">
       <header className="App-header">
-        <Link to="/">Home</Link>
-        <h1>Movies:</h1>
-        <ul>
-          {movies &&
-            movies.map((movie) => {
-              return (
-                <li key={movie._id}>
-                  <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
-                </li>
-              );
-            })}
-        </ul>
-
+        <Link className="Link" to="/">
+          Home
+        </Link>
+        <h1>Movies</h1>
+        <div className="movie-list">
+          <ul>
+            {movies &&
+              movies.map((movie) => {
+                return (
+                  <li key={movie._id}>
+                    <Link className="Link" to={`/movies/${movie._id}`}>
+                      {movie.title}
+                    </Link>
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
         <form onSubmit={(event) => handleSubmit(event)}>
-          <label>
-            Title:
-            <input type="text" name="title" value={values.title} onChange={handleInputChanges} />
-          </label>
-          <label>
-            Director:
+          <label className="formLabel">
+            Title:&nbsp;
             <input
+              className="formInput"
+              type="text"
+              name="title"
+              placeholder="movie title"
+              value={values.title}
+              onChange={handleInputChanges}
+            />
+          </label>
+          <label className="formLabel">
+            Director:&nbsp;
+            <input
+              className="formInput"
               type="text"
               name="director"
+              placeholder="movie director"
               value={values.director}
               onChange={handleInputChanges}
             />
           </label>
-          <label>
-            Year Released:
+          <label className="formLabel">
+            Year Released:&nbsp;
             <input
+              className="formInput"
               type="text"
               name="releaseYear"
+              placeholder="movie release year"
               value={values.releaseYear}
               onChange={handleInputChanges}
             />
           </label>
-          <input type="submit" value="Submit" />
+          <button className="button" type="submit">
+            Add Movie
+          </button>
         </form>
       </header>
     </div>

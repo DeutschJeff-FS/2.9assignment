@@ -104,39 +104,59 @@ function Movie() {
   return (
     <div className="App">
       <header className="App-header">
-        <Link to="/">Home</Link>
-        <Link to="/dashboard">Dashboard</Link>
+        <Link className="Link" to="/">
+          Home
+        </Link>
+        <Link className="Link" to="/dashboard">
+          Dashboard
+        </Link>
         <h1>Movie Info</h1>
-        <h4>{values && values.title}</h4>
-        <h5>{values && values.director}</h5>
-        <h5>{values && values.releaseYear}</h5>
+        <div className="movie-info">
+          <h4>{values && values.title}</h4>
+          <h5>{values && values.director}</h5>
+          <h5>{values && values.releaseYear}</h5>
+        </div>
 
-        <form onSubmit={(event) => handleSubmit(event)}>
-          <label>
-            Title:
-            <input type="text" name="title" value={values.title} onChange={handleInputChanges} />
-          </label>
-          <label>
-            Director:
-            <input
-              type="text"
-              name="director"
-              value={values.director}
-              onChange={handleInputChanges}
-            />
-          </label>
-          <label>
-            Year Released:
-            <input
-              type="text"
-              name="releaseYear"
-              value={values.releaseYear}
-              onChange={handleInputChanges}
-            />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-        <button onClick={() => deleteMovie()}>Delete Movie</button>
+        <div className="form">
+          <form onSubmit={(event) => handleSubmit(event)}>
+            <label className="formLabel">
+              Title:&nbsp;
+              <input
+                className="formInput"
+                type="text"
+                name="title"
+                value={values.title}
+                onChange={handleInputChanges}
+              />
+            </label>
+            <label className="formLabel">
+              Director:&nbsp;
+              <input
+                className="formInput"
+                type="text"
+                name="director"
+                value={values.director}
+                onChange={handleInputChanges}
+              />
+            </label>
+            <label className="formLabel">
+              Year Released:&nbsp;
+              <input
+                className="formInput"
+                type="text"
+                name="releaseYear"
+                value={values.releaseYear}
+                onChange={handleInputChanges}
+              />
+            </label>
+            <button className="button" type="submit">
+              Edit Movie Info
+            </button>
+            <button className="deleteButton" onClick={() => deleteMovie()}>
+              Delete Movie
+            </button>
+          </form>
+        </div>
       </header>
     </div>
   );

@@ -24,8 +24,85 @@
   color: white;
 }
 
+.App-header > h1 {
+  text-decoration: underline;
+}
+
+.movie-list {
+  border: 2px solid darkolivegreen;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+ul {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.Link {
+  color: #61dafb;
+}
+
+.Link:visited {
+  color: palevioletred;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid darkolivegreen;
+  border-radius: 10px;
+}
+
+.movie-info h4,
+.movie-info h5 {
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.formLabel {
+  display: flex;
+  padding: 5px;
+}
+
+.formInput {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.button,
+.deleteButton {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  background-color: royalblue;
+  color: white;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.deleteButton {
+  background-color: mediumslateblue;
 }
 
 @keyframes App-logo-spin {
