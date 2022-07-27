@@ -10,6 +10,12 @@ function Home() {
         <Link className="Link" to="/dashboard">
           Dashboard
         </Link>
+        <Link className="Link" to="/login">
+          Login
+        </Link>
+        <Link className="Link" to="/signup">
+          Signup
+        </Link>
       </header>
     </div>
   );
