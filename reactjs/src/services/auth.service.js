@@ -9,12 +9,12 @@ const API_URL = "/auth";
 
 const signup = (email, password) => {
   return axios
-    .post(`${API_BASE}${API_URL}/`, {
+    .post(`${API_BASE}${API_URL}`, {
       email,
       password,
     })
     .then((res) => {
-      if (res.data.accessToken) {
+      if (res.data.token) {
         localStorage.setItem("user", JSON.stringify(res.data));
       }
       return res.data;

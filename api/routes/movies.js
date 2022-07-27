@@ -34,12 +34,12 @@ router.get("/", protectedRoute, async (req, res, next) => {
 });
 
 // GET by ID
-router.get("/:id", getMovie, async (req, res, next) => {
+router.get("/:id", protectedRoute, getMovie, async (req, res, next) => {
   res.json(res.movie);
 });
 
 // POST
-router.post("/", async (req, res, next) => {
+router.post("/", protectedRoute, async (req, res, next) => {
   const movie = new Movie({
     title: req.body.title,
     director: req.body.director,
@@ -54,7 +54,7 @@ router.post("/", async (req, res, next) => {
 });
 
 // PATCH
-router.patch("/:id", getMovie, async (req, res, next) => {
+router.patch("/:id", protectedRoute, getMovie, async (req, res, next) => {
   if (req.body.title != null) {
     res.movie.title = req.body.title;
   }
@@ -73,7 +73,7 @@ router.patch("/:id", getMovie, async (req, res, next) => {
 });
 
 // DELETE
-router.delete("/:id", getMovie, async (req, res, next) => {
+router.delete("/:id", protectedRoute, getMovie, async (req, res, next) => {
   try {
     await res.movie.remove();
     res.json({ message: `Removed Movie` });

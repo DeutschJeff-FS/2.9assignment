@@ -36,7 +36,7 @@ const localStrategy = new LocalStrategy(localOptions, function (
 
 const jwtOptions = {
   secretOrKey: config.secret,
-  jwtFromRequest: ExtractJwt.fromHeader("authorization"),
+  jwtFromRequest: ExtractJwt.fromHeader("Authorization"),
 };
 
 const jwtStrategy = new JwtStrategy(jwtOptions, function (payload, done) {

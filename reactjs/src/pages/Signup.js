@@ -9,6 +9,7 @@ function Signup() {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
   const handleSignup = async (event) => {
     event.preventDefault();
     try {
@@ -28,6 +29,9 @@ function Signup() {
     <div className="App">
       <header className="App-header">
         <h1>Signup</h1>
+        <Link className="Link" to="/">
+          Home
+        </Link>
         <Link className="Link" to="/dashboard">
           Dashboard
         </Link>
