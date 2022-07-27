@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import authService from "../services/auth.service";
+import moviesService from "../services/movies.service";
 import "../App.css";
 
 function Dashboard() {
@@ -12,6 +15,8 @@ function Dashboard() {
     releaseYear: "",
   });
 
+  const navigate = useNavigate();
+
   const API_BASE =
     process.env.NODE_ENV === "development"
       ? `http://localhost:8000/api/v1`
@@ -19,12 +24,24 @@ function Dashboard() {
 
   let ignore = false;
   useEffect(() => {
-    if (!ignore) {
-      getMovies();
-    }
-    return () => {
-      ignore = true;
-    };
+    moviesService.getAllPrivateMovies().then(
+      (res) => {
+        setMovies(res.data);
+      },
+      (error) => {
+        console.log("Secured Page Error: ", error.res);
+        if (error.res && error.res.status == 403) {
+          authService.logout();
+          navigate("/login");
+        }
+      }
+    );
+    // if (!ignore) {
+    //   getMovies();
+    // }
+    // return () => {
+    //   ignore = true;
+    // };
   }, []);
 
   const getMovies = async () => {
