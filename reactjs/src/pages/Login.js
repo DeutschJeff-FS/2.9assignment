@@ -30,6 +30,9 @@ function Login() {
     <div className="App">
       <header className="App-header">
         <h1>Login In</h1>
+        <Link className="Link" to="/">
+          Home
+        </Link>
         <Link className="Link" to="/dashboard">
           Dashboard
         </Link>

@@ -10,7 +10,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(false);
 
   useEffect(() => {
     const user = authService.getCurrentUser();
@@ -26,7 +26,9 @@ function App() {
   return (
     <div>
       <h1>Demo Logging In</h1>
-      <div>{currentUser ? <h2>Logged In</h2> : <h2>Logged Out</h2>}</div>
+      <div>
+        {currentUser == true ? <h2>Logged In</h2> : <h2>Logged Out</h2>}
+      </div>
       <section>
         <Routes>
           <Route path="/login" exact element={<Login />}></Route>
